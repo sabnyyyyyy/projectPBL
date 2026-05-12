@@ -1,0 +1,259 @@
+/* CONTAINER */
+.dokter-container {
+  padding: 20px;
+}
+
+/* GRID */
+.dokter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+.dokter-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.dokter-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* IMAGE */
+.dokter-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  border: 3px solid #7b61ff;
+}
+
+/* TEXT */
+.dokter-card p {
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+/* BUTTON */
+.dokter-card button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+
+  background: linear-gradient(135deg, #7b61ff, #4facfe);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dokter-card button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ================= MODAL ================= */
+
+/* OVERLAY */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+  animation: fadeBg 0.3s ease;
+}
+
+/* MODAL BOX */
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 20px;
+
+  width: 340px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  animation: modalIn 0.3s ease;
+}
+
+/* TITLE */
+.modal-content h3 {
+  text-align: center;
+}
+
+/* LABEL */
+.modal-content label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* INPUT */
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 10px;
+
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+.modal-content textarea {
+  min-height: 80px;
+  resize: none;
+}
+
+/* FOCUS */
+.modal-content input:focus,
+.modal-content textarea:focus {
+  outline: none;
+  border: 1px solid #7b61ff;
+  box-shadow: 0 0 0 2px rgba(123, 97, 255, 0.2);
+}
+
+/* BUTTON PRIMARY */
+.btn-primary {
+  margin-top: 10px;
+  padding: 12px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #7b61ff, #4facfe);
+  color: white;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  transform: scale(1.02);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* BUTTON SECONDARY */
+.btn-secondary {
+  padding: 12px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #e0e0e0;
+  color: #333;
+  cursor: pointer;
+}
+
+/* ================= TOAST ================= */
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 18px;
+  border-radius: 12px;
+
+  color: white;
+  font-size: 14px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+  animation: toastIn 0.4s ease, toastOut 0.4s ease 2.6s forwards;
+  z-index: 9999;
+}
+
+.toast.success {
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+}
+
+.toast.error {
+  background: linear-gradient(135deg, #e53935, #ff7043);
+}
+
+.toast-icon {
+  font-size: 16px;
+}
+
+/* ================= SPINNER ================= */
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255,255,255,0.4);
+  border-top: 3px solid white;
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+  margin: auto;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes toastOut {
+  to {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

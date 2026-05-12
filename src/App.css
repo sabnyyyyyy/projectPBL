@@ -1,0 +1,136 @@
+/* FULL SCREEN */
+.home {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* BACKGROUND IMAGE */
+.bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  animation: zoom 12s ease-in-out infinite alternate;
+}
+
+/* OVERLAY BOX */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+  padding: 45px 65px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(18px);
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+
+  /* ANIMASI MASUK */
+  animation: slideUpBox 0.8s ease forwards;
+}
+
+/* TEXT */
+.overlay h1 {
+  color: white;
+  font-size: 42px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+
+  opacity: 0;
+  animation: slideUpText 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.overlay p {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 25px;
+
+  opacity: 0;
+  animation: slideUpText 0.8s ease forwards;
+  animation-delay: 0.4s;
+}
+
+/* BUTTON */
+.overlay button {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+
+  background: linear-gradient(90deg, #6a5acd, #4a90e2);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+
+  opacity: 0;
+  animation: slideUpText 0.8s ease forwards;
+  animation-delay: 0.6s;
+
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* HOVER */
+.overlay button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* EFFECT GLOW */
+.overlay button::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(255,255,255,0.2);
+  transition: 0.3s;
+}
+
+.overlay button:hover::after {
+  width: 100%;
+}
+
+/* ================= ANIMATIONS ================= */
+
+/* BOX dari bawah */
+@keyframes slideUpBox {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -30%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* TEXT & BUTTON dari bawah */
+@keyframes slideUpText {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* BACKGROUND ZOOM */
+@keyframes zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
