@@ -220,10 +220,6 @@ function Overview({ appointments, dentists, patients, setPage }) {
     { label: "Pending approvals",  value: pending,             icon: "ti-clock", iconBg: "#fee2e2", iconColor: "#dc2626", trend: `Needs action` },
   ];
 
-  const maxApt = Math.max(
-  ...appointments.map((a) => a.id || 1),
-  1
-);
   const bars = [
     { label: "Confirmed", val: confirmed, max: appointments.length, color: "#16a34a" },
     { label: "Pending",   val: pending,   max: appointments.length, color: "#d97706" },
