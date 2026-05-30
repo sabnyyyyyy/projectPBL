@@ -1006,6 +1006,7 @@ const fetchPatients = async () => {
 
   }
 };
+// eslint-disable-next-line no-unused-vars
 const updateStatus = async (
   id,
   status
