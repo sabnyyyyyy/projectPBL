@@ -618,7 +618,7 @@ export default function Home() {
         date: booking.appointment_date,
         time: booking.appointment_time,
         patient: formData.name,
-        dentist: dentists.find((d) => d.id == formData.dentist_id)?.name,
+        dentist: dentists.find((d) => d.id === formData.dentist_id)?.name,
       });
       setFormData({ name: "", email: "", dentist_id: "", date: "", time: "" });
     } catch (error) {
